@@ -1,5 +1,6 @@
 package com.sky.techtalks_compose.ui.feature.categories
 
+import android.util.Log
 import androidx.activity.compose.BackHandler
 import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.Image
@@ -179,11 +180,7 @@ fun FoodItemThumbnail(
 
 @Composable
 private fun ExpandableContentIcon(expanded: Boolean) {
-    val navController = rememberNavController()
-    IconButton(onClick = {
-        navController.navigateUp()
-    }) {
-        Icon(
+    Icon(
             imageVector = if (expanded)
                 Icons.Filled.KeyboardArrowUp
             else
@@ -192,7 +189,6 @@ private fun ExpandableContentIcon(expanded: Boolean) {
             modifier = Modifier
                 .padding(all = 16.dp)
         )
-    }
 }
 
 @Composable
@@ -207,13 +203,18 @@ fun LoadingBar() {
 
 @Composable
 private fun CategoriesAppBar() {
+    val navController = rememberNavController()
     TopAppBar(
         navigationIcon = {
-            Icon(
-                imageVector = Icons.Default.Home,
-                modifier = Modifier.padding(horizontal = 12.dp),
-                contentDescription = "Action icon"
-            )
+            IconButton(onClick = {
+                navController.navigateUp()
+            }) {
+                Icon(
+                    imageVector = Icons.Default.Home,
+                    modifier = Modifier.padding(horizontal = 12.dp),
+                    contentDescription = "Action icon"
+                )
+            }
         },
         title = { Text(stringResource(com.sky.techtalks_compose.R.string.app_name)) },
         backgroundColor = MaterialTheme.colors.background
