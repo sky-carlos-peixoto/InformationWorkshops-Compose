@@ -1,4 +1,4 @@
-# TechTalks - Android Jetpack Compose Sample
+# Information Workshops - Android Jetpack Compose Sample
 
 This project is a sample presented on Sky Tech Talks about Android Jetpack Compose.
 
