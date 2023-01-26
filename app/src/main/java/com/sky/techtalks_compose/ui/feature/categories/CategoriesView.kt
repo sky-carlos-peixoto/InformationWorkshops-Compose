@@ -1,7 +1,5 @@
 package com.sky.techtalks_compose.ui.feature.categories
 
-import android.util.Log
-import androidx.activity.compose.BackHandler
 import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -10,7 +8,6 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
@@ -31,7 +28,6 @@ import androidx.navigation.compose.rememberNavController
 import coil.compose.rememberImagePainter
 import coil.request.ImageRequest
 import com.sky.techtalks_compose.models.FoodItem
-import com.sky.techtalks_compose.ui.navigation.NavigationKeys
 import com.sky.techtalks_compose.ui.noRippleClickable
 import com.sky.techtalks_compose.ui.theme.TechTalksComposeTheme
 import kotlinx.coroutines.flow.Flow

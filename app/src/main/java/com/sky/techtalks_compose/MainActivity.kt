@@ -1,27 +1,20 @@
 package com.sky.techtalks_compose
 
-import android.graphics.fonts.FontStyle.FONT_WEIGHT_BOLD
 import android.os.Bundle
-import android.view.View
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -36,7 +29,6 @@ import com.sky.techtalks_compose.ui.feature.categories.CategoriesViewModel
 import com.sky.techtalks_compose.ui.feature.category_detail.CategoryDetailView
 import com.sky.techtalks_compose.ui.feature.category_detail.CategoryDetailViewModel
 import com.sky.techtalks_compose.ui.navigation.NavigationKeys
-import com.sky.techtalks_compose.ui.theme.PurpleGrey40
 import com.sky.techtalks_compose.ui.theme.TechTalksComposeTheme
 import com.sky.techtalks_compose.ui.theme.black60
 import dagger.hilt.android.AndroidEntryPoint
@@ -67,15 +59,21 @@ fun FoodApp() {
 }
 
 @Composable
-fun SetupNavigation(){
+fun SetupNavigation() {
     val navController = rememberNavController()
-    NavHost(navController = navController, startDestination = NavigationKeys.Route.CATEGORIES_LIST){
-        composable(route = NavigationKeys.Route.CATEGORIES_LIST){
+    NavHost(
+        navController = navController,
+        startDestination = NavigationKeys.Route.CATEGORIES_LIST
+    ) {
+        composable(route = NavigationKeys.Route.CATEGORIES_LIST) {
             CategoriesDestination(navController)
         }
-        composable(route = NavigationKeys.Route.CATEGORY_DETAIL, arguments = listOf(navArgument(NavigationKeys.Arg.CATEGORY_ID){
-            type = NavType.StringType
-        })){
+        composable(
+            route = NavigationKeys.Route.CATEGORY_DETAIL,
+            arguments = listOf(navArgument(NavigationKeys.Arg.CATEGORY_ID) {
+                type = NavType.StringType
+            })
+        ) {
             CategoryDetailDestination()
         }
     }
@@ -101,18 +99,25 @@ private fun CategoryDetailDestination() {
 @Composable
 fun OnboardingScreen(onContinueClicked: () -> Unit) {
     Surface() {
-        Image(painter = painterResource(id = R.drawable.meal_pizza_background),
+        Image(
+            painter = painterResource(id = R.drawable.meal_pizza_background),
             contentDescription = "background meal",
-            contentScale = ContentScale.Crop)
+            contentScale = ContentScale.Crop
+        )
 
-        Surface(color = black60, modifier = Modifier.fillMaxSize(), content = {  })
+        Surface(color = black60, modifier = Modifier.fillMaxSize(), content = { })
 
         Column(
             modifier = Modifier.fillMaxSize(),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Text(text = "Compose your meal", color = Color.White, fontWeight = FontWeight.Bold, fontSize = 30.sp)
+            Text(
+                text = "Compose your meal",
+                color = Color.White,
+                fontWeight = FontWeight.Bold,
+                fontSize = 30.sp
+            )
             Button(
                 modifier = Modifier.padding(vertical = 24.dp),
                 onClick = onContinueClicked
