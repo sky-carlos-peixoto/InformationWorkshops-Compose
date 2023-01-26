@@ -4,4 +4,4 @@ This project is a sample presented on Sky Tech Talks about Android Jetpack Compo
 
 Here is the presentation:
 
-[TechTalks.pptx](https://github.com/sky-carlos-peixoto/TechTalks-Compose/files/9821366/TechTalks.pptx)
+[InformationWorkshops-Compose.pptx](https://github.com/sky-carlos-peixoto/TechTalks-Compose/blob/main/InformationWorkshops-Compose.pptx)
